@@ -48,8 +48,6 @@
 		</dependency>
 	</dependencies>
 
-
-	<repositories>
 		<repository>
       		<id>mulesoft-group</id>
       		<url>http://cicd-nexus:8081/repository/mulesoft-group/</url>
