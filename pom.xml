@@ -26,12 +26,37 @@
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>exchange-mule-maven-plugin</artifactId>
+				<version>0.0.17</version>
+			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<armDeployment>
+						<uri>https://gov.anypoint.mulesoft.com</uri>
+						<muleVersion>${app.runtime}</muleVersion>
+						<connectedAppClientId>${clientId}</connectedAppClientId>
+						<connectedAppClientSecret>${clientSecret}</connectedAppClientSecret>
+						<connectedAppGrantType>${grantType}</connectedAppGrantType>
+						<applicationName>${application.name}</applicationName>
+						<environment>${environment}</environment>
+						<businessGroupId>3578a973-7f0e-4ffa-8bb0-d5ad5f827286</businessGroupId>
+						<!-- Accenture Federal Services\eldee.khowong -->
+						<target>${target}</target>
+						<targetType>serverGroup</targetType>
+						<properties>
+							<env>dev</env>
+						</properties>
+					</armDeployment>
+					<classifier>mule-application</classifier>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
 
 	<dependencies>
 		<dependency>
@@ -46,13 +71,19 @@
 			<version>1.2.1</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
+		<dependency>
+			<groupId>org.mule.tools.maven</groupId>
+			<artifactId>exchange-mule-maven-plugin</artifactId>
+			<version>0.0.17</version>
+		</dependency>
 	</dependencies>
 
+	<!-- <repositories>
 		<repository>
       		<id>mulesoft-group</id>
       		<url>http://cicd-nexus:8081/repository/mulesoft-group/</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 	<distributionManagement>
 		<repository>
